@@ -1,0 +1,13 @@
+<div *ngIf="digimonList">
+    <div class="pointer" *ngFor="let digimon of digimonList" [routerLink]="['/digimon', digimon.id]">
+        <div class="card border-primary mb-3 ml-25 mr-25" style="max-width: 18rem; float:left;">
+            <div class="card-header"><b>{{ digimon.name }}</b></div>
+            <div class="card-body text-primary">
+                <a class="card-text">ID: <b>{{ digimon.id }}</b></a><br>
+                <a class="card-text">Nombre: <b>{{ digimon.name }}</b></a><br>
+                <a class="card-text">Nivel: <b>{{ digimon.level }}</b></a><hr>
+                <img src="{{ digimon.img }}" width="250px" height="250px">
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<input class="form-control" type="text" placeholder="Buscar" [(ngModel)]="buscar" (ngModelChange)="getDigimonNombre($event)">
+<br>
+<div *ngIf="digimonListNombre">
+    <div *ngFor="let digimon of digimonListNombre">
+        <div class="card border-primary mb-3 ml-25 mr-25" style="max-width: 18rem; float:left;">
+            <div class="card-header"><b>{{ digimon.name }}</b></div>
+            <div class="card-body text-primary">
+                <a class="card-text">ID: <b>{{ digimon.id }}</b></a><br>
+                <a class="card-text">Nombre: <b>{{ digimon.name }}</b></a><br>
+                <a class="card-text">Nivel: <b>{{ digimon.level }}</b></a><hr>
+                <img src="{{ digimon.img }}" width="250px" height="250px">
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="!digimonListNombre">
+    <div class="alert alert-info" role="alert">
+        No hay <b>Digimon</b> para mostrar
+    </div>
+</div>

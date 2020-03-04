@@ -1,0 +1,22 @@
+<select class="custom-select mr-sm-2" [(ngModel)]="buscar" (ngModelChange)="getDigimonNivel($event)">
+    <option *ngFor="let level of levelList" [ngValue]="level">{{ level }}</option>
+</select>
+<br><br>
+<div *ngIf="digimonListLevel">
+    <div *ngFor="let digimon of digimonListLevel">
+        <div class="card border-primary mb-3 ml-25 mr-25" style="max-width: 18rem; float:left;">
+            <div class="card-header"><b>{{ digimon.name }}</b></div>
+            <div class="card-body text-primary">
+                <a class="card-text">ID: <b>{{ digimon.id }}</b></a><br>
+                <a class="card-text">Nombre: <b>{{ digimon.name }}</b></a><br>
+                <a class="card-text">Nivel: <b>{{ digimon.level }}</b></a><hr>
+                <img src="{{ digimon.img }}" width="250px" height="250px">
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="!digimonListLevel">
+    <div class="alert alert-info" role="alert">
+        No hay <b>Digimon</b> para mostrar
+    </div>
+</div>
